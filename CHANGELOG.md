@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+- Sicherung ist jetzt ein Markdown-Logbuch (`anima-logbuch-Datum-Uhrzeit.md`): lesbar für Dich, mit Datenblock zum Wiederherstellen.
+- Standard: nach jeder Einheit sichern. „Logbuch laden“ liest .md und die alten .json-Sicherungen.
+
 ## 0.2.0
 - Neues Design „Weite und Klang“: hell und luftig, Atemring, Perlen statt Kästen, Dämmerung als Dunkelmodus.
 - Trainingstage (Lösen, Klang, Kuppel, Sprechen) mit Varianten je Baustein; Orte: Zuhause, Raum an der Hochschule, Unterwegs leise.

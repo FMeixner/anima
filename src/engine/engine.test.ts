@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { CONTEXTS, DAYS, EXERCISES, contextById, dayById, exerciseById } from "../data";
 import { emptyState, migrate } from "../store";
 import type { AppState, Session } from "../types";
+import { fromBackup, toMarkdown } from "./logbook";
 import { cycleSlot, setSlot } from "./actions";
 import { addDays, mondayOf } from "./dates";
 import { blockMinutes, dayFor, resolveDay } from "./plan";
@@ -169,4 +170,22 @@ describe("Migration", () => {
     expect(s.texts.woerter.length).toBeGreaterThan(2);
   });
   it("mondayOf", () => expect(mondayOf("2026-11-29")).toBe(MON));
+});
+
+describe("Logbuch", () => {
+  it("schreibt Markdown und stellt den Zustand daraus wieder her", () => {
+    let s: AppState = { ...emptyState(), onboarded: true, start: "2026-11-24" };
+    s = setSlot(s, "2026-11-24", "morgens", "done", 10, ["lippenflattern"], false);
+    s = { ...s, texts: { ...s.texts, gedicht: "Zeile `eins`\n```\nZeile zwei" }, logs: [{ week: 0, rsiItems: [1, 2], note: "Start" }] };
+    const md = toMarkdown(s, "2026-11-24");
+    expect(md).toContain("# Anima – Übungslogbuch");
+    expect(md).toContain("Lippenflattern");
+    expect(md).toContain("RSI 3");
+    expect(fromBackup(md)).toEqual(s);
+  });
+  it("liest auch reines JSON und lehnt Fremdes ab", () => {
+    const s = emptyState();
+    expect(fromBackup(JSON.stringify(s))).toEqual(s);
+    expect(fromBackup("# nur Text")).toBeNull();
+  });
 });

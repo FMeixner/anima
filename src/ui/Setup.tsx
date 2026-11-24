@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { REFERENCES } from "../data";
-import { download } from "../backup";
+import { download, stamped } from "../backup";
+import { fromBackup } from "../engine/logbook";
 import { emptyState } from "../store";
 import type { AppState, Settings } from "../types";
 import { Fold } from "./common";
@@ -15,10 +16,10 @@ export function Setup({ state, update, replace, today, onClose }: { state: AppSt
 
   const importFile = async (f: File) => {
     try {
-      const raw = JSON.parse(await f.text());
-      if (raw?.version !== 1) throw new Error("falsches Format");
-      if (confirm("Aktuelle Daten durch die Sicherung ersetzen?")) replace(raw);
-    } catch { alert("Die Datei ist keine Anima-Sicherung."); }
+      const raw = fromBackup(await f.text());
+      if (!raw) throw new Error("falsches Format");
+      if (confirm("Aktuelle Daten durch das Logbuch ersetzen?")) replace(raw as AppState);
+    } catch { alert("Die Datei ist kein Anima-Logbuch."); }
   };
 
   return (
@@ -65,16 +66,16 @@ export function Setup({ state, update, replace, today, onClose }: { state: AppSt
       </section>
 
       <section className="pane stack">
-        <h3 className="serif">Sicherung</h3>
+        <h3 className="serif">Logbuch und Sicherung</h3>
         <p className="soft small">{state.lastBackup ? `Letzte Sicherung: ${state.lastBackup}.` : "Noch nicht gesichert."}</p>
         <div className="row wrap">
-          <button className="btn" onClick={() => { download(state, "anima-sicherung.json"); update((s) => ({ ...s, lastBackup: today })); }}>Sicherung speichern</button>
-          <button className="btn" onClick={() => file.current?.click()}>Sicherung laden</button>
-          <input ref={file} type="file" accept="application/json,.json" hidden onChange={(e) => { const f = e.target.files?.[0]; if (f) void importFile(f); e.target.value = ""; }} />
+          <button className="btn" onClick={() => { download(state, stamped(), today); update((s) => ({ ...s, lastBackup: today })); }}>Logbuch speichern</button>
+          <button className="btn" onClick={() => file.current?.click()}>Logbuch laden</button>
+          <input ref={file} type="file" accept=".md,.json,text/markdown,application/json,text/plain" hidden onChange={(e) => { const f = e.target.files?.[0]; if (f) void importFile(f); e.target.value = ""; }} />
         </div>
         <label className="field">Automatisch sichern
-          <select value={state.autoBackup ?? "week"} onChange={(e) => update((s) => ({ ...s, autoBackup: e.target.value as AppState["autoBackup"] }))}>
-            <option value="week">Wöchentlich nach einer Einheit</option><option value="session">Nach jeder Einheit</option><option value="off">Aus</option>
+          <select value={state.autoBackup ?? "session"} onChange={(e) => update((s) => ({ ...s, autoBackup: e.target.value as AppState["autoBackup"] }))}>
+            <option value="session">Nach jeder Einheit</option><option value="off">Aus</option>
           </select>
         </label>
         <button className="btn danger" style={{ alignSelf: "flex-start" }} onClick={() => { if (confirm("Alle Daten auf diesem Gerät löschen?")) replace(emptyState()); }}>Alles zurücksetzen</button>

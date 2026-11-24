@@ -34,6 +34,7 @@ export function migrate(raw: unknown): AppState {
     return x;
   });
   s.logs = Array.isArray(s.logs) ? s.logs : [];
+  if ((s.autoBackup as string) === "week") s.autoBackup = "session";
   return s;
 }
 

@@ -12,6 +12,10 @@ Basis ist das Atemprogramm aus der Grazer Studie (Eherer et al., 2012): zweimal 
 - **Protokoll**: Einheiten, Tage mit Sodbrennen, PPI und Alginat, RSI in Woche 0, 4, 8, Stimme/Notiz
 - **Stimme und Alltag** (ab Woche 3, optional): Bauchatmung im Sitzen und Stehen, Summen auf der Ausatmung, Satz auf einer Ausatmung
 
+## Nur auf dem Handy
+
+Die Einzeldatei `anima-einzeldatei.html` läuft ohne Server und ohne GitHub. Nach jeder Einheit schreibt die App ein Markdown-Logbuch in den Download-Ordner. Das ist die Sicherung, falls der Browserspeicher gelöscht wird. Zurück geht es über Einstellungen → Logbuch laden.
+
 ## Hinweise
 
 Der RSI ist eine eigene deutsche Formulierung, keine validierte Fassung.
