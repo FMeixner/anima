@@ -1,0 +1,24 @@
+{
+  "refs": [
+    {
+      "id": "eherer2012",
+      "text": "Eherer, A. J. et al. (2012). Positive effect of abdominal breathing exercise on gastroesophageal reflux disease: A randomized, controlled study. American Journal of Gastroenterology, 107(3), 372–378.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22146488/"
+    },
+    {
+      "id": "ong2018",
+      "text": "Ong, A. M.-L. et al. (2018). Diaphragmatic breathing reduces belching and proton pump inhibitor refractory gastroesophageal reflux symptoms. Clinical Gastroenterology and Hepatology, 16(3), 407–416.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29104130/"
+    },
+    {
+      "id": "broschuere2024",
+      "text": "Trainingsbroschüre „Breathing Training“ (Zusatzmaterial, 2024). Springer Nature.",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1186%2Fs12931-024-02783-5/MediaObjects/12931_2024_2783_MOESM1_ESM.doc"
+    },
+    {
+      "id": "belafsky2002",
+      "text": "Belafsky, P. C., Postma, G. N., & Koufman, J. A. (2002). Validity and reliability of the reflux symptom index (RSI). Journal of Voice, 16(2), 274–277.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12150380/"
+    }
+  ]
+}

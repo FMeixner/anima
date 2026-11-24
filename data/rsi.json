@@ -1,0 +1,15 @@
+{
+  "_hinweis": "Eigene deutsche Formulierung des Reflux Symptom Index (Belafsky et al., 2002), keine validierte deutsche Fassung. Je Frage 0 (kein Problem) bis 5 (schweres Problem), Summe 0–45. Hier nur zum Verlauf bei dir.",
+  "scale": { "min": 0, "max": 5 },
+  "items": [
+    "Heiserkeit oder ein Problem mit der Stimme",
+    "Räuspern",
+    "Übermäßiger Schleim im Hals oder Schleim, der von der Nase in den Rachen läuft",
+    "Schluckbeschwerden bei Essen, Flüssigkeit oder Tabletten",
+    "Husten nach dem Essen oder nach dem Hinlegen",
+    "Atembeschwerden oder Erstickungsanfälle",
+    "Lästiger, störender Husten",
+    "Gefühl, dass etwas im Hals steckt, oder Kloßgefühl",
+    "Sodbrennen, Brustschmerz, Verdauungsbeschwerden oder aufsteigende Magensäure"
+  ]
+}

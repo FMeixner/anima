@@ -1,0 +1,10 @@
+{
+  "_hinweis": "Phasen und Erhaltung sind eine Ergänzung zur Broschüre (Eherer 2012: 8 Wochen, 2 x täglich 20–30 Min). Umfang der Erhaltung mit der Logopädie klären.",
+  "slots": ["morgens", "abends"],
+  "rsiWeeks": [0, 4, 8],
+  "phases": [
+    { "id": "technik", "from": 1, "to": 2, "name": "Technik lernen", "focus": "Brustkorb ruhig, nur der Bauch bewegt sich.", "core": "bauchatmung-liegen", "extras": [] },
+    { "id": "festigen", "from": 3, "to": 8, "name": "Routine festigen", "focus": "Tief und ruhig atmen, ohne Anstrengung.", "core": "bauchatmung-liegen", "extras": ["bauchatmung-sitzen", "bauchatmung-stehen", "summen-ausatmung", "sprechen-ausatmung"] },
+    { "id": "erhaltung", "from": 9, "to": null, "name": "Erhaltung", "focus": "Der Langzeiteffekt zeigte sich nur bei denen, die weiter geübt haben.", "core": "bauchatmung-liegen", "extras": ["bauchatmung-sitzen", "bauchatmung-stehen", "summen-ausatmung", "sprechen-ausatmung"] }
+  ]
+}
