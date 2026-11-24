@@ -34,7 +34,7 @@ export function Today({ state, update, today, week, onStart, onProtocol }: {
 
   return (
     <div className="stack gap-l">
-      <WeekOrb dots={dots} title={`Woche ${week}`} sub={`${prog.done + prog.skipped} von ${prog.planned}`} />
+      <WeekOrb dots={dots} title={`Woche ${week}`} sub={`${prog.done + prog.skipped} von ${prog.planned}`} inSec={state.settings.inSec} outSec={state.settings.outSec} />
       {banner}
       <div className="stack"><p className="soft center">Wo übst du heute?</p><ContextPicker state={state} update={update} /></div>
 

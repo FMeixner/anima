@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.2
+- Der Orb auf der Startseite atmet im Takt deiner Einstellungen (Standard 4 s ein, 6 s aus).
+
 ## 0.2.1
 - Sicherung ist jetzt ein Markdown-Logbuch (`anima-logbuch-Datum-Uhrzeit.md`): lesbar für Dich, mit Datenblock zum Wiederherstellen.
 - Standard: nach jeder Einheit sichern. „Logbuch laden“ liest .md und die alten .json-Sicherungen.

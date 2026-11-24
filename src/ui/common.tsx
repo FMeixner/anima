@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { CONTEXTS } from "../data";
 import type { AppState, ContextId } from "../types";
 
@@ -22,8 +22,19 @@ export function Wave({ className = "" }: { className?: string }) {
 export type Dot = { status: "done" | "skipped" | "open"; today: boolean };
 
 /** Atemring der Woche: eine Perle je geplante Einheit, in der Mitte atmet der Orb. */
-export function WeekOrb({ dots, title, sub }: { dots: Dot[]; title: string; sub: string }) {
+export function WeekOrb({ dots, title, sub, inSec, outSec }: { dots: Dot[]; title: string; sub: string; inSec: number; outSec: number }) {
   const R = 124, cx = 150, cy = 150;
+  const core = useRef<SVGCircleElement>(null);
+  // Der Orb atmet im eigenen Takt: wächst beim Einatmen, schrumpft beim Ausatmen
+  useEffect(() => {
+    const el = core.current;
+    if (!el || !el.animate || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    const a = el.animate(
+      [{ transform: "scale(0.94)", easing: "ease-in-out", offset: 0 }, { transform: "scale(1.08)", easing: "ease-in-out", offset: inSec / (inSec + outSec) }, { transform: "scale(0.94)", offset: 1 }],
+      { duration: (inSec + outSec) * 1000, iterations: Infinity },
+    );
+    return () => a.cancel();
+  }, [inSec, outSec]);
   return (
     <div className="weekorb">
       <svg viewBox="0 0 300 300" role="img" aria-label={`${title}, ${sub}`}>
@@ -40,7 +51,7 @@ export function WeekOrb({ dots, title, sub }: { dots: Dot[]; title: string; sub:
         <circle cx={cx} cy={cy} r={R + 14} className="ripple r3" />
         <circle cx={cx} cy={cy} r={R - 20} className="ripple r2" />
         <circle cx={cx} cy={cy} r={R - 44} className="ripple r1" />
-        <circle cx={cx} cy={cy} r="88" fill="url(#core)" className="core" />
+        <circle cx={cx} cy={cy} r="88" fill="url(#core)" className="core" ref={core} />
         {dots.map((d, i) => {
           const a = (i / dots.length) * Math.PI * 2 - Math.PI / 2;
           const x = cx + R * Math.cos(a), y = cy + R * Math.sin(a);
