@@ -1,55 +1,77 @@
 export type Slot = "morgens" | "abends";
-export type ExKind = "core" | "extra";
+export type Need = "gymball" | "wurfball" | "schlauch" | "platz" | "boden" | "laut";
+export type Mode = "pacer" | "timer" | "reps" | "list" | "text";
+export type Group = "koerper" | "atem" | "zwerchfell" | "stimme" | "sprechen";
+export type ContextId = "zuhause" | "raum" | "unterwegs";
+
+export interface TimedPhase { label: string; seconds: number }
 
 export interface Exercise {
   id: string;
   name: string;
-  kind: ExKind;
-  /** broschuere = aus der Studienbroschüre, ergaenzung = eigene Ergänzung (mit Logopädie abstimmen) */
-  source: "broschuere" | "ergaenzung";
-  minutes: { default: number; min: number; max: number };
+  group: Group;
+  mode: Mode;
+  /** eigen = aus deiner Schulung, broschuere = Studienbroschüre, recherche = von mir recherchiert */
+  source: "eigen" | "broschuere" | "recherche";
+  /** Was gebraucht wird: Geräte, Platz, Boden, Stimme (Geräusch) */
+  needs: Need[];
+  /** Richtwert in Minuten */
+  minutes: number;
+  /** Dauer kommt aus den Einstellungen (Kernübung) */
+  scalable?: boolean;
   position: string;
   steps: string[];
-  unit: "Atemzüge" | "Sätze";
-  handSwap: boolean;
-  hands: string[];
-  pacer: boolean;
   tip?: string;
+  evidence?: string;
+  refs?: string[];
+  // pacer
+  unit?: "Atemzüge";
+  handSwap?: boolean;
+  hands?: string[];
+  inSec?: number;
+  outSec?: number;
+  // timer
+  phases?: TimedPhase[];
+  // reps
+  reps?: number;
+  repLabel?: string;
+  repCue?: string;
+  // list, text
+  textKey?: "woerter" | "gedicht";
+  emphasis?: "last";
 }
 
-export interface Phase {
-  id: string;
-  from: number;
-  to: number | null;
-  name: string;
-  focus: string;
-  core: string;
-  extras: string[];
-}
+export interface DayBlock { options: string[] }
+export interface Day { id: string; name: string; tagline: string; blocks: DayBlock[] }
+export interface Context { id: ContextId; name: string; sub: string; has: Need[] }
 
 export interface Settings {
-  /** Dauer einer Kerneinheit in Minuten (20–30) */
+  /** Dauer der Kernübung in Minuten (20–30) */
   minutes: number;
   /** Atemzüge je Block vor dem Handwechsel (5–10) */
   breaths: number;
-  /** Einatmen und Ausatmen in Sekunden für den Taktgeber */
+  /** Standardtakt für den Taktgeber, wenn die Übung keinen eigenen hat */
   inSec: number;
   outSec: number;
   pacer: boolean;
   tones: "off" | "block" | "breath";
   vibrate: boolean;
-  /** Ab Woche 9: Einheiten pro Tag und Dauer, mit der Logopädie festlegen */
-  maintenancePerDay: 1 | 2;
-  maintenanceMinutes: number;
+}
+
+export interface Texts {
+  /** Wortpaare für „Abspannen in Wörtern“, eines pro Eintrag; betont wird das letzte Wort */
+  woerter: string[];
+  gedicht: string;
 }
 
 export interface Session {
   id: string;
   date: string;
-  kind: ExKind;
-  /** nur bei Kerneinheiten */
+  /** plan = geplante Einheit im Wochenplan, free = freies Üben aus der Bibliothek */
+  kind: "plan" | "free";
   slot?: Slot;
-  exerciseId: string;
+  dayId?: string;
+  exerciseIds: string[];
   /** tatsächlich geübte Minuten (0 bei „fällt aus“) */
   minutes: number;
   status: "done" | "skipped";
@@ -59,11 +81,9 @@ export interface Session {
 export interface WeekLog {
   week: number;
   skipped?: boolean;
-  /** Tage mit Sodbrennen, PPI, Alginat (0–7) */
   heartburnDays?: number;
   ppiDays?: number;
   alginateDays?: number;
-  /** Einzelwerte des RSI (9 × 0–5), nur in den RSI-Wochen */
   rsiItems?: number[];
   note?: string;
 }
@@ -73,7 +93,9 @@ export interface AppState {
   onboarded: boolean;
   /** Erster Übungstag. Woche 1 ist die Kalenderwoche (Mo–So), in die er fällt. */
   start: string | null;
+  context: ContextId;
   settings: Settings;
+  texts: Texts;
   sessions: Session[];
   logs: WeekLog[];
   theme?: "dark" | "light";

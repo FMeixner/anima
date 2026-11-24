@@ -22,8 +22,8 @@ export function Protocol({ state, update, today, week, selected, onSelect }: {
 
   return (
     <div className="stack">
-      <h2>Protokoll</h2>
-      <div className="card" style={{ overflowX: "auto" }}>
+      <h2 className="serif hero">Protokoll</h2>
+      <div className="pane" style={{ overflowX: "auto" }}>
         <table className="tbl">
           <thead><tr><th>Woche</th><th>Einh.</th><th>Sodbr.</th><th>PPI</th><th>Alg.</th><th>RSI</th></tr></thead>
           <tbody>
@@ -43,11 +43,11 @@ export function Protocol({ state, update, today, week, selected, onSelect }: {
             })}
           </tbody>
         </table>
-        <p className="muted small" style={{ marginTop: 6 }}>Einheiten = erledigte von geplanten. • = Protokoll fällig.</p>
+        <p className="soft small" style={{ marginTop: 6 }}>Einheiten = erledigte von geplanten. • = Protokoll fällig.</p>
       </div>
 
-      <div className="card stack">
-        <div className="row between"><h3>{selected === 0 ? "Start (Woche 0)" : `Woche ${selected}`}</h3>{prog && <span className="muted small">Einheiten {prog.done} von {prog.planned}</span>}</div>
+      <div className="pane stack">
+        <div className="row between"><h3 className="serif">{selected === 0 ? "Start (Woche 0)" : `Woche ${selected}`}</h3>{prog && <span className="soft small">Einheiten {prog.done} von {prog.planned}</span>}</div>
         {selected >= 1 && (
           <div className="row">
             <label className="field grow">Tage mit Sodbrennen<input type="number" inputMode="numeric" min={0} max={7} value={log?.heartburnDays ?? ""} onChange={(e) => patch({ heartburnDays: num(e.target.value) })} /></label>
@@ -58,7 +58,7 @@ export function Protocol({ state, update, today, week, selected, onSelect }: {
         {rsi && (
           <div className="stack">
             <div className="row between"><strong>Reflux Symptom Index</strong><span className="mono">{total === null ? "–" : `${total} / ${RSI_ITEMS.length * RSI_MAX}`}</span></div>
-            <p className="muted small">Wie sehr haben dich diese Beschwerden im letzten Monat belastet? 0 = kein Problem, 5 = sehr schweres Problem.</p>
+            <p className="soft small">Wie sehr haben dich diese Beschwerden im letzten Monat belastet? 0 = kein Problem, 5 = sehr schweres Problem.</p>
             {RSI_ITEMS.map((q, i) => (
               <label key={q} className="field">{i + 1}. {q}
                 <select value={items[i]} onChange={(e) => setItem(i, Number(e.target.value))}>
@@ -66,17 +66,17 @@ export function Protocol({ state, update, today, week, selected, onSelect }: {
                 </select>
               </label>
             ))}
-            {!log?.rsiItems && <button className="btn small" onClick={() => patch({ rsiItems: items })}>Alle mit 0 eintragen</button>}
+            {!log?.rsiItems && <button className="btn" onClick={() => patch({ rsiItems: items })}>Alle mit 0 eintragen</button>}
           </div>
         )}
         <label className="field">Stimme / Notiz
           <textarea value={log?.note ?? ""} onChange={(e) => patch({ note: e.target.value || undefined })} placeholder="z. B. Stimme morgens, Heiserkeit, Technik-Fragen für die Logopädie" />
         </label>
-        {selected === 0 && !log && <button className="btn ghost small" onClick={() => patch({ skipped: true })}>Start-RSI überspringen</button>}
-        {log?.skipped && <button className="btn ghost small" onClick={() => patch({ skipped: undefined })}>Überspringen zurücknehmen</button>}
-        {selected >= 1 && !log && <button className="btn primary" onClick={() => patch({})}>Woche ohne Angaben abschließen</button>}
+        {selected === 0 && !log && <button className="btn quiet" onClick={() => patch({ skipped: true })}>Start-RSI überspringen</button>}
+        {log?.skipped && <button className="btn quiet" onClick={() => patch({ skipped: undefined })}>Überspringen zurücknehmen</button>}
+        {selected >= 1 && !log && <button className="btn primary tall" onClick={() => patch({})}>Woche ohne Angaben abschließen</button>}
       </div>
-      <p className="muted small">RSI: eigene deutsche Formulierung nach Belafsky et al. (2002), keine validierte Fassung. Nur zum Verlauf bei dir.</p>
+      <p className="soft small">RSI: eigene deutsche Formulierung nach Belafsky et al. (2002), keine validierte Fassung. Nur zum Verlauf bei dir.</p>
     </div>
   );
 }

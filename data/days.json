@@ -1,0 +1,142 @@
+{
+  "days": [
+    {
+      "id": "kern",
+      "name": "Bauchatmung",
+      "tagline": "Der ruhige Kern, vor dem Abendessen",
+      "blocks": [
+        {
+          "options": [
+            "bauchatmung-liegen",
+            "bauchatmung-sitzen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loesen",
+      "name": "Lösen und Weite",
+      "tagline": "Ausschütteln, schwingen, Wirbel für Wirbel aufrichten",
+      "blocks": [
+        {
+          "options": [
+            "schuetteln",
+            "kiefer-loesen"
+          ]
+        },
+        {
+          "options": [
+            "armschwingen",
+            "flankenatmung"
+          ]
+        },
+        {
+          "options": [
+            "wirbel-aufrichten"
+          ]
+        },
+        {
+          "options": [
+            "ballatmung",
+            "bauchatmung-sitzen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klang",
+      "name": "Lippen und Klang",
+      "tagline": "Prusten, blubbern, summen",
+      "blocks": [
+        {
+          "options": [
+            "lippenflattern",
+            "resonanzatmung"
+          ]
+        },
+        {
+          "options": [
+            "blubberschlauch",
+            "summen-resonanz",
+            "lippenbremse"
+          ]
+        },
+        {
+          "options": [
+            "gaehn-seufzer",
+            "flankenatmung"
+          ]
+        },
+        {
+          "options": [
+            "sprechen-ausatmung",
+            "bauchatmung-sitzen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kuppel",
+      "name": "Kuppel und Abspannen",
+      "tagline": "Die Kuppel heben, das Zwerchfell spannen und lösen",
+      "blocks": [
+        {
+          "options": [
+            "ballatmung",
+            "bauchatmung-sitzen"
+          ]
+        },
+        {
+          "options": [
+            "abspannen-hopp",
+            "abspannen-impuls",
+            "abspannen-lautlos"
+          ]
+        },
+        {
+          "options": [
+            "f-s-sch",
+            "flankenatmung"
+          ]
+        },
+        {
+          "options": [
+            "abspannen-woerter",
+            "lippenbremse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sprechen",
+      "name": "Sprechen",
+      "tagline": "Abspannen in Wörtern, ein Gedicht auf dem Atem",
+      "blocks": [
+        {
+          "options": [
+            "summen-resonanz",
+            "lippenbremse"
+          ]
+        },
+        {
+          "options": [
+            "abspannen-woerter",
+            "abspannen-lautlos"
+          ]
+        },
+        {
+          "options": [
+            "gedicht",
+            "resonanzatmung"
+          ]
+        },
+        {
+          "options": [
+            "sprechen-ausatmung",
+            "flankenatmung"
+          ]
+        }
+      ]
+    }
+  ]
+}

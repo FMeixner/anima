@@ -1,0 +1,33 @@
+{
+  "contexts": [
+    {
+      "id": "zuhause",
+      "name": "Zuhause",
+      "sub": "Ball, Schlauch, Platz",
+      "has": [
+        "gymball",
+        "wurfball",
+        "schlauch",
+        "platz",
+        "boden",
+        "laut"
+      ]
+    },
+    {
+      "id": "raum",
+      "name": "Raum an der Hochschule",
+      "sub": "Platz und Stimme, keine Geräte",
+      "has": [
+        "platz",
+        "boden",
+        "laut"
+      ]
+    },
+    {
+      "id": "unterwegs",
+      "name": "Unterwegs, leise",
+      "sub": "Sitzend, ohne Geräusch",
+      "has": []
+    }
+  ]
+}

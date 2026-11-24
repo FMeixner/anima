@@ -1,0 +1,86 @@
+{
+  "exercises": [
+    {
+      "id": "abspannen-hopp",
+      "name": "Abspannen mit dem Ball",
+      "group": "zwerchfell",
+      "mode": "reps",
+      "source": "eigen",
+      "needs": [
+        "wurfball",
+        "laut"
+      ],
+      "minutes": 3,
+      "position": "Locker stehen, einen Ball in der Hand.",
+      "steps": [
+        "Einatmen, der Bauch weitet sich.",
+        "Den Ball werfen und dabei „Hopp“ sagen: die Kuppel hebt sich, das Zwerchfell spannt kurz.",
+        "Sofort wieder loslassen und den Atem von allein kommen lassen."
+      ],
+      "evidence": "Aus deiner Stimmschulung; keine Studie gefunden. Ob das Zwerchfell allein die Atemstütze trägt, ist umstritten, auch Rumpf- und Bauchmuskeln arbeiten mit.",
+      "reps": 10,
+      "repLabel": "Wurf",
+      "repCue": "Ball werfen, „Hopp“, spannen, loslassen."
+    },
+    {
+      "id": "abspannen-impuls",
+      "name": "Abspannen ohne Ball",
+      "group": "zwerchfell",
+      "mode": "reps",
+      "source": "eigen",
+      "needs": [
+        "laut"
+      ],
+      "minutes": 3,
+      "position": "Locker stehen.",
+      "steps": [
+        "Einatmen, der Bauch weitet sich.",
+        "Eine Wurfbewegung mit den Händen andeuten und „Hopp“ sagen: Kuppel heben, Zwerchfell spannen.",
+        "Loslassen und den Atem von allein kommen lassen."
+      ],
+      "evidence": "Variante von „Abspannen mit dem Ball“ ohne Gerät.",
+      "reps": 10,
+      "repLabel": "Impuls",
+      "repCue": "Wurfbewegung, „Hopp“, spannen, loslassen."
+    },
+    {
+      "id": "abspannen-lautlos",
+      "name": "Abspannen, lautlos",
+      "group": "zwerchfell",
+      "mode": "reps",
+      "source": "eigen",
+      "needs": [],
+      "minutes": 3,
+      "position": "Sitzend, eine Hand auf dem Bauch.",
+      "steps": [
+        "Einatmen, der Bauch weitet sich.",
+        "Ohne Ton einen kurzen Impuls ausatmen, wie ein lautloses „Hopp“. Die Hand spürt, wie die Bauchdecke kurz spannt.",
+        "Loslassen und den Atem von allein kommen lassen."
+      ],
+      "evidence": "Stille Variante von „Abspannen“ für unterwegs. Entwurf.",
+      "reps": 10,
+      "repLabel": "Impuls",
+      "repCue": "Lautloses „Hopp“, spannen, loslassen."
+    },
+    {
+      "id": "abspannen-woerter",
+      "name": "Abspannen in Wörtern",
+      "group": "zwerchfell",
+      "mode": "list",
+      "source": "eigen",
+      "needs": [
+        "laut"
+      ],
+      "minutes": 3,
+      "position": "Locker stehen oder aufrecht sitzen, eine Hand auf dem Bauch.",
+      "steps": [
+        "Das Wortpaar sprechen.",
+        "Auf der zweiten Silbe, der hervorgehobenen, spannt das Zwerchfell, danach sofort wieder lösen.",
+        "Die Liste kannst du in den Einstellungen ändern."
+      ],
+      "evidence": "Aus deiner Stimmschulung; keine Studie gefunden.",
+      "textKey": "woerter",
+      "emphasis": "last"
+    }
+  ]
+}

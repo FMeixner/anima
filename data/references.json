@@ -11,6 +11,11 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/29104130/"
     },
     {
+      "id": "gerdmeta2020",
+      "text": "The effect of breathing exercises on patients with GERD: a meta-analysis (2020). Annals of Palliative Medicine, 9(2), 405–413.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32233626/"
+    },
+    {
       "id": "broschuere2024",
       "text": "Trainingsbroschüre „Breathing Training“ (Zusatzmaterial, 2024). Springer Nature.",
       "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1186%2Fs12931-024-02783-5/MediaObjects/12931_2024_2783_MOESM1_ESM.doc"
@@ -19,6 +24,31 @@
       "id": "belafsky2002",
       "text": "Belafsky, P. C., Postma, G. N., & Koufman, J. A. (2002). Validity and reliability of the reflux symptom index (RSI). Journal of Voice, 16(2), 274–277.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/12150380/"
+    },
+    {
+      "id": "pozzali2024",
+      "text": "Pozzali, I., Pizzorni, N., et al. (2024). Effectiveness of semi-occluded vocal tract exercises (SOVTEs) in patients with dysphonia: A systematic review and meta-analysis. Journal of Voice, 38(1), 245.e17–245.e35.",
+      "url": "https://apps.asha.org/EvidenceMaps/Articles/ArticleSummary/5baa3e22-e96e-4b14-a922-e848d530023f"
+    },
+    {
+      "id": "sarpkaya2025",
+      "text": "Sarpkaya, R., & Tadihan Özkan, E. (2025). Examining current findings on the clinical effectiveness of semi-occluded vocal tract exercises in individuals with dysphonia. Balkan Health Science Journal, 4(2), 78–84.",
+      "url": "https://doi.org/10.61830/balkansbd.1774502"
+    },
+    {
+      "id": "yiu2017",
+      "text": "Yiu, E. M., Lo, M. C., et al. (2017). A systematic review of resonant voice therapy. International Journal of Speech-Language Pathology, 19(1), 17–29.",
+      "url": "https://doi.org/10.1080/17549507.2016.1226953"
+    },
+    {
+      "id": "zaccaro2018",
+      "text": "Zaccaro, A. et al. (2018). How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience, 12, 353.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30245619/"
+    },
+    {
+      "id": "slow2024",
+      "text": "The effect of slow-paced breathing on cardiovascular and emotion functions: A meta-analysis and systematic review (2024). Mindfulness, 15, 1–18.",
+      "url": "https://doi.org/10.1007/s12671-023-02294-2"
     }
   ]
 }

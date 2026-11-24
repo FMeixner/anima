@@ -1,6 +1,6 @@
 # Hinweise für Coding-Agenten
 
-Anima ist eine Atem- und Stimmtraining-PWA (Vite, React 19, TypeScript). Aus Order (FMeixner/order) übernommen: Stack, `audio.ts`, `backup.ts`, Gestaltungstokens, Wochen-Abhaken.
+Anima ist eine Atem- und Stimmtraining-PWA (Vite, React 19, TypeScript). Aus Order (FMeixner/order) übernommen: Stack, `audio.ts`, `backup.ts`, Wochen-Abhaken.
 
 ## Leitlinie
 Einfach zu bedienen, aufgeräumt, konkret. Details nur auf Wunsch. UI-Texte Deutsch, Du-Form, knapp.

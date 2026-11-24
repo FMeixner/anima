@@ -1,6 +1,6 @@
 # Anima
 
-Geführtes Atem- und Stimmtraining. Läuft im Browser, lässt sich auf dem Handy wie eine App installieren. Alle Daten bleiben auf dem Gerät.
+Geführtes Atem- und Stimmtraining. Läuft im Browser, lässt sich auf dem Handy wie eine App installieren.
 
 Basis ist das Atemprogramm aus der Grazer Studie (Eherer et al., 2012): zweimal täglich 20–30 Minuten Bauchatmung in Rückenlage über 8 Wochen, danach Erhaltung. Anima führt durch die Einheit, lässt dich jede Woche Einheit für Einheit abhaken und hält das Wochenprotokoll.
 
@@ -14,7 +14,7 @@ Basis ist das Atemprogramm aus der Grazer Studie (Eherer et al., 2012): zweimal 
 
 ## Hinweise
 
-Anima ersetzt keine ärztliche oder therapeutische Beratung. Phasen, Erhaltung und alle Stimm-Übungen sind Ergänzungen zur Broschüre und mit der Logopädie abzustimmen. Der RSI ist eine eigene deutsche Formulierung, keine validierte Fassung.
+Der RSI ist eine eigene deutsche Formulierung, keine validierte Fassung.
 
 ## Inhalte bearbeiten
 

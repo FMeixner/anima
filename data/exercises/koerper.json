@@ -1,0 +1,93 @@
+{
+  "exercises": [
+    {
+      "id": "schuetteln",
+      "name": "Ganzkörper ausschütteln",
+      "group": "koerper",
+      "mode": "timer",
+      "source": "eigen",
+      "needs": [
+        "platz"
+      ],
+      "minutes": 1,
+      "position": "Locker stehen, Knie weich.",
+      "steps": [
+        "Hände, Arme, Schultern, Beine nacheinander ausschütteln, bis der ganze Körper mitschwingt.",
+        "Kiefer locker, Mund leicht offen, der Atem darf frei mitgehen."
+      ],
+      "evidence": "Aus deiner Stimmschulung; keine Studie recherchiert.",
+      "phases": [
+        {
+          "label": "Ausschütteln",
+          "seconds": 60
+        }
+      ]
+    },
+    {
+      "id": "armschwingen",
+      "name": "Arme hin und her schwingen",
+      "group": "koerper",
+      "mode": "timer",
+      "source": "eigen",
+      "needs": [
+        "platz"
+      ],
+      "minutes": 1,
+      "position": "Hüftbreit stehen, Knie weich.",
+      "steps": [
+        "Beide Arme locker von links nach rechts pendeln lassen, der Oberkörper dreht leicht mit.",
+        "Schultern bleiben weich, der Atem fließt weiter."
+      ],
+      "evidence": "Aus deiner Stimmschulung; keine Studie recherchiert.",
+      "phases": [
+        {
+          "label": "Schwingen",
+          "seconds": 60
+        }
+      ]
+    },
+    {
+      "id": "wirbel-aufrichten",
+      "name": "Vorbeuge, Wirbel für Wirbel aufrichten",
+      "group": "koerper",
+      "mode": "reps",
+      "source": "eigen",
+      "needs": [
+        "platz"
+      ],
+      "minutes": 3,
+      "position": "Hüftbreit stehen, Knie weich.",
+      "steps": [
+        "Kinn Richtung Brust, die Wirbelsäule Wirbel für Wirbel nach vorn abrollen, Arme und Kopf hängen lassen.",
+        "Unten zwei ruhige Atemzüge in den Rücken.",
+        "Wirbel für Wirbel wieder aufrichten, der Kopf kommt zuletzt."
+      ],
+      "tip": "Wie bei einem Jefferson Curl, nur ohne Gewicht und ohne Dehnungsschmerz.",
+      "evidence": "Aus deiner Stimmschulung; keine Studie recherchiert.",
+      "reps": 5,
+      "repLabel": "Aufrichten",
+      "repCue": "Langsam abrollen, unten atmen, Wirbel für Wirbel aufrichten."
+    },
+    {
+      "id": "kiefer-loesen",
+      "name": "Kiefer lösen durch Kauen",
+      "group": "koerper",
+      "mode": "timer",
+      "source": "recherche",
+      "needs": [],
+      "minutes": 1,
+      "position": "Sitzend, Schultern weich.",
+      "steps": [
+        "Mit geschlossenen Lippen langsam und weit kauen, als wäre der Mund voller Kaugummi.",
+        "Zunge darf mitwandern, Kiefer bleibt locker, ruhig weiteratmen."
+      ],
+      "evidence": "Kauen („chewing technique“) ist eine Stimmtherapie-Technik; gefunden habe ich nur Pilotstudien.",
+      "phases": [
+        {
+          "label": "Kauen",
+          "seconds": 45
+        }
+      ]
+    }
+  ]
+}

@@ -1,28 +1,27 @@
 /* Zustandsänderungen als reine Funktionen (testbar). */
 import { uid } from "../store";
 import type { AppState, Slot, WeekLog } from "../types";
-import { coreSession, phaseOf } from "./week";
+import { dayFor } from "./plan";
+import { slotSession } from "./week";
 
-const CORE_ID = () => phaseOf(1).core;
-
-/** Kerneinheit setzen (erledigt, fällt aus) oder entfernen (status = null) */
-export function setCore(state: AppState, date: string, slot: Slot, status: "done" | "skipped" | null, minutes?: number, manual = false): AppState {
-  const rest = state.sessions.filter((s) => s !== coreSession(state, date, slot));
+/** Einheit setzen (erledigt, fällt aus) oder entfernen (status = null) */
+export function setSlot(state: AppState, date: string, slot: Slot, status: "done" | "skipped" | null, minutes = 0, exerciseIds: string[] = [], manual = false): AppState {
+  const rest = state.sessions.filter((s) => s !== slotSession(state, date, slot));
   if (!status) return { ...state, sessions: rest };
-  const m = status === "skipped" ? 0 : minutes ?? state.settings.minutes;
-  return { ...state, sessions: [...rest, { id: uid("s"), date, kind: "core", slot, exerciseId: CORE_ID(), minutes: m, status, ...(manual ? { manual: true } : {}) }] };
+  const dayId = dayFor(date, slot)?.id;
+  return { ...state, sessions: [...rest, { id: uid("s"), date, kind: "plan", slot, dayId, exerciseIds: status === "skipped" ? [] : exerciseIds, minutes: status === "skipped" ? 0 : minutes, status, ...(manual ? { manual: true } : {}) }] };
 }
 
 /** Antippen im Wochenraster: offen → erledigt → fällt aus → offen */
-export function cycleCore(state: AppState, date: string, slot: Slot): AppState {
-  const cur = coreSession(state, date, slot);
-  if (!cur) return setCore(state, date, slot, "done", undefined, true);
-  if (cur.status === "done") return setCore(state, date, slot, "skipped");
-  return setCore(state, date, slot, null);
+export function cycleSlot(state: AppState, date: string, slot: Slot, plannedMinutes = 0): AppState {
+  const cur = slotSession(state, date, slot);
+  if (!cur) return setSlot(state, date, slot, "done", plannedMinutes, [], true);
+  if (cur.status === "done") return setSlot(state, date, slot, "skipped");
+  return setSlot(state, date, slot, null);
 }
 
-export function addExtra(state: AppState, date: string, exerciseId: string, minutes: number): AppState {
-  return { ...state, sessions: [...state.sessions, { id: uid("s"), date, kind: "extra", exerciseId, minutes, status: "done" }] };
+export function addFree(state: AppState, date: string, exerciseIds: string[], minutes: number): AppState {
+  return { ...state, sessions: [...state.sessions, { id: uid("s"), date, kind: "free", exerciseIds, minutes, status: "done" }] };
 }
 
 /** Wochenprotokoll ändern (legt es bei Bedarf an) */

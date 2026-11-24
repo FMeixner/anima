@@ -17,14 +17,15 @@ export const REST_CYCLE = 5;
 export const CLOSE_SECONDS = 30;
 
 export function buildSteps(ex: Exercise, minutes: number, s: Pick<Settings, "breaths" | "inSec" | "outSec">): Step[] {
-  const cycle = ex.pacer ? s.inSec + s.outSec : 8;
+  const cycle = (ex.inSec ?? s.inSec) + (ex.outSec ?? s.outSec);
   const blockSec = s.breaths * cycle;
   const restSec = REST_BREATHS * REST_CYCLE;
   const total = minutes * 60 - CLOSE_SECONDS;
   const n = Math.max(1, Math.round((total + restSec) / (blockSec + restSec)));
   const steps: Step[] = [];
   for (let i = 0; i < n; i++) {
-    const hint = ex.handSwap ? ex.hands[i % ex.hands.length] : ex.hands[0];
+    const hands = ex.hands ?? [];
+    const hint = ex.handSwap ? hands[i % hands.length] : hands[0];
     steps.push({ kind: "breaths", label: `Block ${i + 1} von ${n}`, hint, count: s.breaths, cycle, seconds: blockSec });
     if (i < n - 1) steps.push({ kind: "rest", label: ex.handSwap ? "Hände tauschen, normal atmen" : "Normal atmen", count: REST_BREATHS, cycle: REST_CYCLE, seconds: restSec });
   }

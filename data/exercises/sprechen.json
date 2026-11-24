@@ -1,0 +1,44 @@
+{
+  "exercises": [
+    {
+      "id": "gedicht",
+      "name": "Gedicht sprechen",
+      "group": "sprechen",
+      "mode": "text",
+      "source": "eigen",
+      "needs": [
+        "laut"
+      ],
+      "minutes": 3,
+      "position": "Aufrecht stehen oder sitzen.",
+      "steps": [
+        "Den Text ruhig und deutlich sprechen.",
+        "Auf Satzenden und Pausen die Luft von allein nachströmen lassen.",
+        "Der Text steht in den Einstellungen und lässt sich ändern."
+      ],
+      "evidence": "Eigener Text.",
+      "textKey": "gedicht"
+    },
+    {
+      "id": "sprechen-ausatmung",
+      "name": "Einen Satz auf einer Ausatmung",
+      "group": "sprechen",
+      "mode": "reps",
+      "source": "recherche",
+      "needs": [
+        "laut"
+      ],
+      "minutes": 3,
+      "position": "Sitzend, eine Hand auf dem Bauch.",
+      "steps": [
+        "Einatmen, der Bauch hebt sich.",
+        "Einen kurzen Satz in normaler Lautstärke sprechen, ohne zwischendurch nachzuatmen.",
+        "Danach ruhig ausatmen lassen, nicht pressen."
+      ],
+      "evidence": "Sprechatmung im Alltag. Entwurf.",
+      "reps": 5,
+      "repLabel": "Satz",
+      "repCue": "Einatmen, ein Satz in normaler Lautstärke, ruhig ausatmen."
+    }
+  ]
+}

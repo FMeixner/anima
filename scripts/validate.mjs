@@ -8,36 +8,54 @@ const read = (p) => JSON.parse(readFileSync(join(root, p), "utf8"));
 const errors = [];
 const err = (f, m) => errors.push(`${f}: ${m}`);
 
-const { exercises } = read("exercises/atmung.json");
+const exercises = ["koerper", "atem", "zwerchfell", "stimme", "sprechen"].flatMap((f) => read(`exercises/${f}.json`).exercises);
+const { days } = read("days.json");
+const { contexts } = read("contexts.json");
 const program = read("program.json");
 const rsi = read("rsi.json");
 const refs = read("references.json").refs;
 
+const NEEDS = ["gymball", "wurfball", "schlauch", "platz", "boden", "laut"];
+const MODES = ["pacer", "timer", "reps", "list", "text"];
+const GROUPS = ["koerper", "atem", "zwerchfell", "stimme", "sprechen"];
+const refIds = new Set(refs.map((r) => r.id));
 const ids = new Set();
 for (const e of exercises) {
   const f = `exercises/${e.id}`;
   if (!e.id || ids.has(e.id)) err(f, "id fehlt oder doppelt");
   ids.add(e.id);
   if (!e.name || !e.position) err(f, "name und position nötig");
-  if (!["core", "extra"].includes(e.kind)) err(f, "kind muss core oder extra sein");
-  if (!["broschuere", "ergaenzung"].includes(e.source)) err(f, "source muss broschuere oder ergaenzung sein");
-  if (!(e.minutes?.min <= e.minutes?.default && e.minutes?.default <= e.minutes?.max)) err(f, "minutes: min ≤ default ≤ max nötig");
+  if (!GROUPS.includes(e.group)) err(f, "unbekannte group");
+  if (!MODES.includes(e.mode)) err(f, "unbekannter mode");
+  if (!["eigen", "broschuere", "recherche"].includes(e.source)) err(f, "source ungültig");
+  if (!Array.isArray(e.needs) || e.needs.some((n) => !NEEDS.includes(n))) err(f, "needs ungültig");
+  if (!(e.minutes > 0)) err(f, "minutes > 0 nötig");
   if (!Array.isArray(e.steps) || e.steps.length < 2) err(f, "mindestens zwei Schritte");
-  if (!["Atemzüge", "Sätze"].includes(e.unit)) err(f, "unit muss Atemzüge oder Sätze sein");
-  if (!e.hands?.length || (e.handSwap && e.hands.length < 2)) err(f, "hands: bei handSwap zwei Haltungen nötig");
+  for (const r of e.refs ?? []) if (!refIds.has(r)) err(f, `refs: ${r} fehlt in references.json`);
+  if (e.mode === "pacer" && (!e.hands?.length || (e.handSwap && e.hands.length < 2))) err(f, "pacer: hands nötig, bei handSwap zwei");
+  if (e.mode === "timer" && !(e.phases?.length && e.phases.every((p) => p.label && p.seconds > 0))) err(f, "timer: phases nötig");
+  if (e.mode === "reps" && !(e.reps > 0 && e.repLabel && e.repCue)) err(f, "reps: reps, repLabel, repCue nötig");
+  if ((e.mode === "list" || e.mode === "text") && !["woerter", "gedicht"].includes(e.textKey)) err(f, "list/text: textKey nötig");
 }
 
-let prevTo = 0;
-for (const p of program.phases) {
-  const f = `program/${p.id}`;
-  if (p.from !== prevTo + 1) err(f, `Phase beginnt in Woche ${p.from}, erwartet ${prevTo + 1}`);
-  prevTo = p.to ?? Infinity;
-  if (!ids.has(p.core) || exercises.find((e) => e.id === p.core)?.kind !== "core") err(f, "core muss eine Kernübung sein");
-  for (const x of p.extras) if (!ids.has(x) || exercises.find((e) => e.id === x)?.kind !== "extra") err(f, `extra ${x} unbekannt oder keine Zusatzübung`);
+const dayIds = new Set();
+for (const d of days) {
+  dayIds.add(d.id);
+  if (!d.name || !d.tagline || !d.blocks?.length) err(`days/${d.id}`, "name, tagline, blocks nötig");
+  for (const [i, b] of d.blocks.entries()) {
+    if (!b.options?.length) err(`days/${d.id}[${i}]`, "options fehlen");
+    for (const o of b.options) if (!ids.has(o)) err(`days/${d.id}[${i}]`, `Übung ${o} unbekannt`);
+  }
 }
-if (prevTo !== Infinity) err("program", "die letzte Phase braucht to: null");
+// Jeder Tag muss an jedem Ort mindestens einen Baustein ermöglichen
+for (const c of contexts) for (const d of days) {
+  const ok = d.blocks.some((b) => b.options.some((o) => exercises.find((e) => e.id === o).needs.every((n) => c.has.includes(n))));
+  if (!ok) err(`days/${d.id}`, `am Ort „${c.id}“ ist kein Baustein möglich`);
+}
+if (program.plan.length !== 7) err("program", "plan braucht 7 Tage (Mo–So)");
+for (const [i, p] of program.plan.entries()) for (const s of program.slots) if (p[s] && !dayIds.has(p[s])) err(`program/plan[${i}]`, `Trainingstag ${p[s]} unbekannt`);
 if (rsi.items.length !== 9) err("rsi", "9 Fragen nötig");
 for (const r of refs) if (!r.id || !r.text || !/^https:\/\//.test(r.url)) err(`references/${r.id}`, "id, text und https-url nötig");
 
 if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
-console.log(`Daten ok: ${exercises.length} Übungen, ${program.phases.length} Phasen.`);
+console.log(`Daten ok: ${exercises.length} Übungen, ${days.length} Trainingstage, ${contexts.length} Orte.`);

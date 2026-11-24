@@ -1,0 +1,114 @@
+{
+  "exercises": [
+    {
+      "id": "lippenflattern",
+      "name": "Lippenflattern: Brrr",
+      "group": "stimme",
+      "mode": "timer",
+      "source": "eigen",
+      "needs": [
+        "laut"
+      ],
+      "minutes": 2,
+      "position": "Locker stehen oder sitzen, Gesicht weich.",
+      "steps": [
+        "Lippen locker aufeinander, Luft durchströmen lassen, so dass sie flattern, wie ein prustendes Pferd.",
+        "Zuerst ohne Stimme, dann mit Stimme: ein Ton gleitet auf und ab."
+      ],
+      "evidence": "Gehört zu den halb verschlossenen Ansatzrohr-Übungen (SOVT). Übersichtsarbeiten sehen kurzfristig bessere Stimmqualität bei überlasteter Stimme; die Studienlage ist insgesamt begrenzt.",
+      "refs": [
+        "pozzali2024",
+        "sarpkaya2025"
+      ],
+      "phases": [
+        {
+          "label": "Ohne Stimme",
+          "seconds": 45
+        },
+        {
+          "label": "Mit Stimme",
+          "seconds": 45
+        }
+      ]
+    },
+    {
+      "id": "blubberschlauch",
+      "name": "Blubberschlauch ins Wasser",
+      "group": "stimme",
+      "mode": "timer",
+      "source": "eigen",
+      "needs": [
+        "schlauch",
+        "laut"
+      ],
+      "minutes": 3,
+      "position": "Aufrecht sitzen, Glas oder Flasche mit Wasser vor dir, Schlauch nur wenige Zentimeter tief eintauchen.",
+      "steps": [
+        "Durch den Schlauch ins Wasser blubbern, gleichmäßig und ohne zu pressen.",
+        "Zuerst stimmlos, dann stimmhaft: ein bequemer Ton, die Blasen bleiben gleichmäßig."
+      ],
+      "evidence": "Schlauch- und Wasserwiderstand zählen zu den SOVT-Übungen; Metaanalyse bei Dysphonie, Dosierung beruht überwiegend auf klinischer Erfahrung.",
+      "refs": [
+        "pozzali2024"
+      ],
+      "phases": [
+        {
+          "label": "Stimmlos",
+          "seconds": 90
+        },
+        {
+          "label": "Stimmhaft",
+          "seconds": 90
+        }
+      ]
+    },
+    {
+      "id": "summen-resonanz",
+      "name": "Summen auf m",
+      "group": "stimme",
+      "mode": "timer",
+      "source": "recherche",
+      "needs": [
+        "laut"
+      ],
+      "minutes": 2,
+      "position": "Aufrecht sitzen, Lippen locker, Zähne nicht aufeinander.",
+      "steps": [
+        "Auf einem bequemen Ton summen, die Schwingung an Lippen und Nase spüren.",
+        "Leicht gleiten lassen, nie drücken.",
+        "Zwischen den Tönen ruhig atmen."
+      ],
+      "evidence": "Summen ist Teil der Resonanzstimmtherapie; die Evidenz gilt als mäßig, überwiegend kleine, unkontrollierte Studien.",
+      "refs": [
+        "yiu2017"
+      ],
+      "phases": [
+        {
+          "label": "Summen",
+          "seconds": 90
+        }
+      ]
+    },
+    {
+      "id": "gaehn-seufzer",
+      "name": "Gähn-Seufzer",
+      "group": "stimme",
+      "mode": "reps",
+      "source": "recherche",
+      "needs": [
+        "laut"
+      ],
+      "minutes": 2,
+      "position": "Aufrecht sitzen oder stehen.",
+      "steps": [
+        "Gähnen andeuten, Rachen weit.",
+        "Beim Ausatmen von hoch nach tief seufzen, leise und locker.",
+        "Der Atem kommt danach von allein."
+      ],
+      "evidence": "Stimmtherapie-Technik („yawn-sigh“); gefunden habe ich nur Pilotstudien.",
+      "reps": 5,
+      "repLabel": "Seufzer",
+      "repCue": "Gähnen, von hoch nach tief seufzen, loslassen."
+    }
+  ]
+}

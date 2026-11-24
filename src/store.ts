@@ -1,18 +1,20 @@
 /* Zustand der App: im Browser gespeichert (localStorage), exportier- und importierbar als JSON. Nichts verlässt das Gerät. */
 import { useCallback, useEffect, useState } from "react";
-import type { AppState, Settings } from "./types";
+import type { AppState, Settings, Texts } from "./types";
 
 const KEY = "anima:v1";
 
 export const uid = (prefix = "id"): string => `${prefix}-${Math.random().toString(36).slice(2, 8)}${Date.now().toString(36).slice(-3)}`;
 
-export const defaultSettings = (): Settings => ({
-  minutes: 25, breaths: 8, inSec: 4, outSec: 6, pacer: true, tones: "block", vibrate: true,
-  maintenancePerDay: 1, maintenanceMinutes: 20,
+export const defaultSettings = (): Settings => ({ minutes: 25, breaths: 8, inSec: 4, outSec: 6, pacer: true, tones: "block", vibrate: true });
+
+export const defaultTexts = (): Texts => ({
+  woerter: ["Komm mit", "Geh weg", "Mach zu", "Bleib da", "Lass los", "Hol ihn", "Sei still", "Schau hin"],
+  gedicht: "",
 });
 
 export function emptyState(): AppState {
-  return { version: 1, onboarded: false, start: null, settings: defaultSettings(), sessions: [], logs: [] };
+  return { version: 1, onboarded: false, start: null, context: "zuhause", settings: defaultSettings(), texts: defaultTexts(), sessions: [], logs: [] };
 }
 
 /** Fehlende Felder aus älteren Ständen ergänzen */
@@ -21,7 +23,16 @@ export function migrate(raw: unknown): AppState {
   if (!raw || typeof raw !== "object") return base;
   const s = { ...base, ...(raw as Partial<AppState>) } as AppState;
   s.settings = { ...base.settings, ...(s.settings ?? {}) };
-  s.sessions = Array.isArray(s.sessions) ? s.sessions : [];
+  s.texts = { ...base.texts, ...(s.texts ?? {}) };
+  // Stand 0.1 (kind core/extra, exerciseId) auf das neue Modell heben
+  s.sessions = (Array.isArray(s.sessions) ? s.sessions : []).map((x) => {
+    const o = x as unknown as Record<string, unknown>;
+    if (o.kind === "core" || o.kind === "extra") {
+      const { exerciseId, ...rest } = o;
+      return { ...rest, kind: o.kind === "core" ? "plan" : "free", exerciseIds: [String(exerciseId)] } as unknown as typeof x;
+    }
+    return x;
+  });
   s.logs = Array.isArray(s.logs) ? s.logs : [];
   return s;
 }

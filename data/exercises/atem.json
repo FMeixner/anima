@@ -1,0 +1,182 @@
+{
+  "exercises": [
+    {
+      "id": "bauchatmung-liegen",
+      "name": "Bauchatmung in Rückenlage",
+      "group": "atem",
+      "mode": "pacer",
+      "source": "broschuere",
+      "needs": [
+        "boden"
+      ],
+      "minutes": 25,
+      "position": "Auf dem Rücken, Beine angewinkelt (kein Hohlkreuz), Kissen unter dem Kopf, Arme locker neben dem Körper.",
+      "steps": [
+        "Linke Hand aufs Brustbein, rechte Hand auf den Bauchnabel.",
+        "Durch die Nase einatmen, als würdest du einen angenehmen Duft möglichst tief in einem Zug einziehen.",
+        "Nur der Bauch hebt sich, die linke Hand kontrolliert, dass der Brustkorb ruhig bleibt.",
+        "Durch die Nase ausatmen, die Bauchwand sinkt.",
+        "5–10 Atemzüge, dann die Hände tauschen."
+      ],
+      "tip": "Ruhig und gleichmäßig, nicht pressen. Bei Schwindel abbrechen, normal weiteratmen und erst nach dem Abklingen fortsetzen.",
+      "evidence": "Grundlage der Grazer Studie zu Reflux; Metaanalyse: Atemübungen erhöhen den Druck des unteren Speiseröhrenschließmuskels.",
+      "refs": [
+        "eherer2012",
+        "ong2018",
+        "gerdmeta2020"
+      ],
+      "unit": "Atemzüge",
+      "handSwap": true,
+      "hands": [
+        "Links Brustbein, rechts Bauchnabel",
+        "Rechts Brustbein, links Bauchnabel"
+      ],
+      "scalable": true
+    },
+    {
+      "id": "bauchatmung-sitzen",
+      "name": "Bauchatmung im Sitzen",
+      "group": "atem",
+      "mode": "pacer",
+      "source": "broschuere",
+      "needs": [],
+      "minutes": 4,
+      "position": "Aufrecht auf einem Stuhl oder im Zug, Füße flach, Schultern locker.",
+      "steps": [
+        "Eine Hand auf dem Bauchnabel, die andere aufs Brustbein.",
+        "Durch die Nase tief nach unten atmen, der Bauch hebt sich, der Brustkorb bleibt ruhig.",
+        "Ausatmen, die Bauchwand sinkt.",
+        "Nach 5–10 Atemzügen die Hände tauschen."
+      ],
+      "tip": "Die stille Variante der Kernübung: lautlos und überall möglich.",
+      "evidence": "Übertragung der Kernübung in den Alltag; Studien nutzen die Rückenlage.",
+      "refs": [
+        "eherer2012"
+      ],
+      "unit": "Atemzüge",
+      "handSwap": true,
+      "hands": [
+        "Links Brustbein, rechts Bauchnabel",
+        "Rechts Brustbein, links Bauchnabel"
+      ]
+    },
+    {
+      "id": "ballatmung",
+      "name": "Ballatmung: in die Tiefe atmen",
+      "group": "atem",
+      "mode": "pacer",
+      "source": "eigen",
+      "needs": [
+        "gymball"
+      ],
+      "minutes": 4,
+      "position": "Aufrecht auf dem Gymnastikball sitzen, Füße hüftbreit, Hände locker auf den Oberschenkeln.",
+      "steps": [
+        "Einatmen, als wolltest du den Ball unter dir aufpusten: tief nach unten, bis in den Beckenboden.",
+        "Der Bauch weitet sich, Becken und Sitzbeinhöcker geben nach.",
+        "Ruhig ausatmen, der Ball federt leicht mit."
+      ],
+      "evidence": "Aus deiner Stimmschulung; keine Studie recherchiert.",
+      "unit": "Atemzüge",
+      "handSwap": false,
+      "hands": [
+        "Hände auf den Oberschenkeln"
+      ]
+    },
+    {
+      "id": "flankenatmung",
+      "name": "Flankenatmung",
+      "group": "atem",
+      "mode": "pacer",
+      "source": "recherche",
+      "needs": [],
+      "minutes": 3,
+      "position": "Sitzend, aufrecht. Hände seitlich auf die unteren Rippen legen.",
+      "steps": [
+        "Durch die Nase einatmen und die Hände seitlich nach außen schieben lassen.",
+        "Auch in den Rücken atmen.",
+        "Langsam ausatmen, die Rippen sinken zurück."
+      ],
+      "evidence": "Standardübung der Gesangs- und Sprechpädagogik; Studien dazu habe ich nicht gefunden.",
+      "unit": "Atemzüge",
+      "handSwap": false,
+      "hands": [
+        "Hände an den unteren Rippen"
+      ],
+      "inSec": 4,
+      "outSec": 6
+    },
+    {
+      "id": "resonanzatmung",
+      "name": "Resonanzatmung: sechs Atemzüge pro Minute",
+      "group": "atem",
+      "mode": "pacer",
+      "source": "recherche",
+      "needs": [],
+      "minutes": 5,
+      "position": "Sitzend oder liegend, Augen offen oder geschlossen.",
+      "steps": [
+        "Durch die Nase 5 Sekunden einatmen, 5 Sekunden ausatmen.",
+        "Der Atem fließt, nichts pressen. Taktgeber folgen."
+      ],
+      "tip": "Leise und unauffällig, gut für die Bahn.",
+      "evidence": "Metaanalyse mit 31 Studien: langsames Atmen um 6 Atemzüge pro Minute senkte kurzfristig den systolischen Blutdruck und erhöhte die Herzratenvariabilität.",
+      "refs": [
+        "slow2024",
+        "zaccaro2018"
+      ],
+      "unit": "Atemzüge",
+      "handSwap": false,
+      "hands": [
+        "Eine Hand auf dem Bauch"
+      ],
+      "inSec": 5,
+      "outSec": 5
+    },
+    {
+      "id": "lippenbremse",
+      "name": "Lippenbremse: lange, ruhige Ausatmung",
+      "group": "atem",
+      "mode": "pacer",
+      "source": "recherche",
+      "needs": [],
+      "minutes": 4,
+      "position": "Sitzend, aufrecht.",
+      "steps": [
+        "Durch die Nase 3 Sekunden einatmen.",
+        "Die Lippen locker aufeinander legen, einen schmalen Spalt lassen und 6 Sekunden gleichmäßig durch den Spalt ausatmen.",
+        "Kein Druck, die Luft fließt einfach."
+      ],
+      "tip": "Fast lautlos, geeignet für unterwegs.",
+      "evidence": "Technik aus der Atemtherapie; hier als stille Ausatemkontrolle. Eigene Studien habe ich dazu nicht recherchiert.",
+      "unit": "Atemzüge",
+      "handSwap": false,
+      "hands": [
+        "Eine Hand auf dem Bauch"
+      ],
+      "inSec": 3,
+      "outSec": 6
+    },
+    {
+      "id": "f-s-sch",
+      "name": "Hauchen auf f, s, sch",
+      "group": "atem",
+      "mode": "reps",
+      "source": "recherche",
+      "needs": [
+        "laut"
+      ],
+      "minutes": 3,
+      "position": "Sitzend oder stehend, beide Hände auf dem Bauch.",
+      "steps": [
+        "Einatmen, der Bauch hebt sich.",
+        "Auf „f“ gleichmäßig ausatmen, dann Pause, bis der Atem von allein wiederkommt.",
+        "Das Gleiche auf „s“ und auf „sch“."
+      ],
+      "evidence": "Übung aus der Sprech- und Atempädagogik; Studien habe ich nicht gefunden.",
+      "reps": 6,
+      "repLabel": "Hauchen",
+      "repCue": "Einatmen, Hauchlaut f, s oder sch, Pause, Atem kommen lassen."
+    }
+  ]
+}

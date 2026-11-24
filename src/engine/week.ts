@@ -1,8 +1,8 @@
 /* Programmwochen und Wochen-Abhaken. Übernommen aus Order: eine Woche (Mo–So) ist geschafft, sobald jede geplante
    Einheit erledigt oder ausgefallen ist („Fällt aus“ zählt als erledigt, nie als verpasst). */
-import { PHASES, RSI_WEEKS, SLOTS } from "../data";
-import type { AppState, Phase, Session, Slot, WeekLog } from "../types";
-import { addDays, mondayOf, daysBetween } from "./dates";
+import { PLAN, RSI_WEEKS, SLOTS } from "../data";
+import type { AppState, Session, Slot, WeekLog } from "../types";
+import { addDays, daysBetween, dowIndex, mondayOf } from "./dates";
 
 /** Programmwoche zu einem Datum: 1 = Woche des ersten Übungstags, 0 = davor oder ohne Start */
 export function weekNo(state: AppState, date: string): number {
@@ -12,14 +12,8 @@ export function weekNo(state: AppState, date: string): number {
 }
 export const weekStart = (state: AppState, week: number): string => addDays(mondayOf(state.start ?? ""), (week - 1) * 7);
 
-export const phaseOf = (week: number): Phase =>
-  PHASES.find((p) => week >= p.from && (p.to === null || week <= p.to)) ?? PHASES[PHASES.length - 1];
-
-/** Einheiten pro Tag: Wochen 1–8 zweimal; in der Erhaltung nach Einstellung (einmal = abends, vor dem Abendessen) */
-export function slotsPerDay(state: AppState, week: number): Slot[] {
-  if (phaseOf(week).id !== "erhaltung" || state.settings.maintenancePerDay === 2) return SLOTS;
-  return ["abends"];
-}
+/** Geplante Einheiten eines Tags laut Wochenplan */
+export const slotsOfDate = (date: string): Slot[] => SLOTS.filter((s) => PLAN[dowIndex(date)]?.[s]);
 
 export interface Planned { date: string; slot: Slot }
 
@@ -31,13 +25,13 @@ export function plannedSlots(state: AppState, week: number): Planned[] {
   for (let i = 0; i < 7; i++) {
     const date = addDays(mon, i);
     if (date < state.start) continue;
-    for (const slot of slotsPerDay(state, week)) out.push({ date, slot });
+    for (const slot of slotsOfDate(date)) out.push({ date, slot });
   }
   return out;
 }
 
-export const coreSession = (state: AppState, date: string, slot: Slot): Session | undefined =>
-  state.sessions.find((s) => s.kind === "core" && s.date === date && s.slot === slot);
+export const slotSession = (state: AppState, date: string, slot: Slot): Session | undefined =>
+  state.sessions.find((s) => s.kind === "plan" && s.date === date && s.slot === slot);
 
 export interface Progress { planned: number; done: number; skipped: number; open: number; minutes: number }
 
@@ -45,7 +39,7 @@ export function weekProgress(state: AppState, week: number): Progress {
   const plan = plannedSlots(state, week);
   let done = 0, skipped = 0, minutes = 0;
   for (const p of plan) {
-    const s = coreSession(state, p.date, p.slot);
+    const s = slotSession(state, p.date, p.slot);
     if (s?.status === "done") { done++; minutes += s.minutes; }
     else if (s?.status === "skipped") skipped++;
   }
@@ -73,9 +67,9 @@ export const baselineDue = (state: AppState): boolean => !!state.start && !logOf
 export const rsiTotal = (items?: number[]): number | null =>
   items && items.length ? items.reduce((a, b) => a + b, 0) : null;
 
-/** Extra-Übungen (Stimme, Alltag) einer Woche, nur zur Anzeige, zählen nicht für die Woche */
-export const extrasOfWeek = (state: AppState, week: number): Session[] => {
+/** Freies Üben einer Woche, nur zur Anzeige, zählt nicht für die Woche */
+export const freeOfWeek = (state: AppState, week: number): Session[] => {
   if (!state.start || week < 1) return [];
   const mon = weekStart(state, week), sun = addDays(mon, 6);
-  return state.sessions.filter((s) => s.kind === "extra" && s.status === "done" && s.date >= mon && s.date <= sun);
+  return state.sessions.filter((s) => s.kind === "free" && s.status === "done" && s.date >= mon && s.date <= sun);
 };
