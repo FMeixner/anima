@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+- Protokoll: Wochen als verständliche Liste (Start = Ausgangswert vor dem Training, Woche mit Datum), Speichern-Knopf, Speichern schreibt das Logbuch.
+- PPI- und Alginat-Tage entfernt.
+
 ## 0.2.2
 - Der Orb auf der Startseite atmet im Takt deiner Einstellungen (Standard 4 s ein, 6 s aus).
 

@@ -82,8 +82,6 @@ export interface WeekLog {
   week: number;
   skipped?: boolean;
   heartburnDays?: number;
-  ppiDays?: number;
-  alginateDays?: number;
   rsiItems?: number[];
   note?: string;
 }

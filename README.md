@@ -9,7 +9,7 @@ Basis ist das Atemprogramm aus der Grazer Studie (Eherer et al., 2012): zweimal 
 - **Heute**: die Einheiten des Tages (morgens, abends), starten, abhaken oder „fällt aus“
 - **Geführte Einheit**: Blöcke zu 5–10 Atemzügen mit Taktgeber, Handwechsel-Hinweis, Ton und Vibration, Bildschirm bleibt an
 - **Woche**: Raster Mo–So × morgens/abends, Antippen schaltet offen → erledigt → fällt aus. Eine Woche ist geschafft, sobald alles erledigt oder ausgefallen ist (Logik aus Order)
-- **Protokoll**: Einheiten, Tage mit Sodbrennen, PPI und Alginat, RSI in Woche 0, 4, 8, Stimme/Notiz
+- **Protokoll**: Einheiten, Tage mit Sodbrennen, RSI in Woche 0, 4, 8, Stimme/Notiz
 - **Stimme und Alltag** (ab Woche 3, optional): Bauchatmung im Sitzen und Stehen, Summen auf der Ausatmung, Satz auf einer Ausatmung
 
 ## Auf dem Handy installieren

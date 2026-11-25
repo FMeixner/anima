@@ -45,8 +45,6 @@ export function toMarkdown(state: AppState, today: string): string {
       const parts: string[] = [];
       if (l.skipped) parts.push("übersprungen");
       if (l.heartburnDays != null) parts.push(`Sodbrennen ${l.heartburnDays} Tage`);
-      if (l.ppiDays != null) parts.push(`PPI ${l.ppiDays} Tage`);
-      if (l.alginateDays != null) parts.push(`Alginat ${l.alginateDays} Tage`);
       const t = rsiTotal(l.rsiItems);
       if (t != null) parts.push(`RSI ${t}`);
       if (l.note) parts.push(`Notiz: ${l.note}`);

@@ -36,10 +36,10 @@ export default function App() {
   }, []);
   // Sicherung nach einer abgeschlossenen Einheit
   useEffect(() => {
-    if (!state.sessions.length) return;
+    if (!state.sessions.length && !state.logs.length) return;
     void autoBackup(state, today).then((r) => { if (r) update((s) => ({ ...s, lastBackup: today })); });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.sessions.length]);
+  }, [state.sessions.length, state.logs]);
 
   if (!state.onboarded) return <Onboarding update={update} />;
 
