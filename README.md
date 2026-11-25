@@ -12,7 +12,13 @@ Basis ist das Atemprogramm aus der Grazer Studie (Eherer et al., 2012): zweimal 
 - **Protokoll**: Einheiten, Tage mit Sodbrennen, PPI und Alginat, RSI in Woche 0, 4, 8, Stimme/Notiz
 - **Stimme und Alltag** (ab Woche 3, optional): Bauchatmung im Sitzen und Stehen, Summen auf der Ausatmung, Satz auf einer Ausatmung
 
-## Nur auf dem Handy
+## Auf dem Handy installieren
+
+**Zur App:** https://fmeixner.github.io/anima/
+
+Link in Chrome öffnen, dann *Zum Startbildschirm hinzufügen*. Danach startet Anima wie eine App und läuft offline. Nach jeder Einheit schreibt Anima ein Markdown-Logbuch in den Download-Ordner, zurück geht es über Einstellungen → Logbuch laden.
+
+## Ohne Installation
 
 Die Einzeldatei `anima-einzeldatei.html` läuft ohne Server und ohne GitHub. Nach jeder Einheit schreibt die App ein Markdown-Logbuch in den Download-Ordner. Das ist die Sicherung, falls der Browserspeicher gelöscht wird. Zurück geht es über Einstellungen → Logbuch laden.
 
